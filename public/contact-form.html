@@ -6,33 +6,38 @@
 <div class="container">
   <div>
     <p>
-      <label>First Name (required)</label> 
-      <input id="name" class="form-control" type="text" ng-model="contact.firstName" required> 
+      <label>Primeiro Nome *</label>
+      <input id="name" class="form-control" type="text" ng-model="contact.firstName" required>
     </p>
     <p>
-      <label>Last Name (required)</label> 
-      <input id="name" class="form-control" type="text" ng-model="contact.lastName" required> 
+      <label>Sobrenome *</label>
+      <input id="name" class="form-control" type="text" ng-model="contact.lastName" required>
     </p>
     <p>
-      <label>Email (required)</label> 
-      <input id="name" class="form-control" type="text" ng-model="contact.email" required> 
+      <label>Sexo *</label>
+      <input id="name" class="form-control" type="text" ng-model="contact.sexo" required>
     </p>
     <p>
-      <label>Phone (Mobile)</label> 
-      <input id="name" class="form-control" type="text" ng-model="contact.phone.mobile"> 
+      <label>Data de Nascimento *</label>
+      <input id="name" class="form-control" type="text" ng-model="contact.sexo" required>
     </p>
     <p>
-      <label>Phone (Work)</label> 
-      <input id="name" class="form-control" type="text" ng-model="contact.phone.work"> 
+      <label>Email</label>
+      <input id="name" class="form-control" type="text" ng-model="contact.email">
     </p>
     <p>
-      <label>Address</label> 
-      <input id="name" class="form-control" type="text" ng-model="contact.address"> 
+      <label>Telefone (Celular)</label>
+      <input id="name" class="form-control" type="text" ng-model="contact.phone.mobile">
     </p>
     <p>
-      <label>Twitter Handle</label> 
-      <input id="name" class="form-control" type="text" ng-model="contact.twitter"> 
+      <label>Telefone (Fixo)</label>
+      <input id="name" class="form-control" type="text" ng-model="contact.phone.fixo">
     </p>
+    <p>
+      <label>Endereço</label>
+      <input id="name" class="form-control" type="text" ng-model="contact.address">
+    </p>
+
     <p>
       <button style="margin-top:20px" class="btn btn-default" ng-click="saveContact(contact)">Save</button>
       <button style="margin-top:20px" class="btn btn-default" ng-click="back()">Back</button>

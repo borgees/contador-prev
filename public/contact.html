@@ -1,30 +1,79 @@
-<div class = "row">
-  <div class="col-md-6">
-    <h2>
-      {{ contact.firstName }} {{ contact.lastName }}
-    </h2>
-  </div>
-  <div class="col-md-3">
-  </div>
-  <div class="col-md-2">
-    <a href="#/"><button style="margin-top:20px" class="btn btn-default" ng-click="deleteContact(contact._id)">Delete</button></a>
-  </div>
-  <div class="col-md-1">
-  </div>
-</div>
-<div ng-hide="editMode" class="container">
-  <div>
-    <p ng-if="contact.email">email: <a ng-href="mailto:{{ contact.email }}" target="_blank">{{ contact.email }}</a></p>
-    <p ng-if="contact.phone.mobile">phone (m): {{ contact.phone.mobile }} </p>
-    <p ng-if="contact.phone.work">phone (w): {{ contact.phone.work }} </p>
-    <p ng-if="contact.address"> address: {{ contact.address }} </p>
-    <p ng-if="contact.twitter"> twitter: <a ng-href="https://twitter.com/{{ contact.twitter }}" target="_blank">@{{ contact.twitter }}</a></p>
-    <p>
-      <button style="margin-top:20px" class="btn btn-default" ng-click="toggleEdit()">Edit</button>
-      <a style="margin-top:20px" class="btn btn-default" href="#/">Back</a>
-    </p>
-  </div>
-</div>
-<!-- Contact form -->
-<div ng-include="contactFormUrl">
-</div>
+
+    <div class="jumbotron">
+
+        <div class="row">
+            <div class="col-xs-6">
+                <h2> {{ contact.firstName }} {{ contact.lastName }} </h2>
+            </div>
+            <div class="col-xs-6">
+                <div class="btn-group navbar-right" role="group" aria-label="...">
+                    <button type="button" class="btn btn-default" ng-click="toggleEdit()">Editar</button>
+                    <button type="button" class="btn btn-danger" href="#/" ng-click="deleteContact(contact._id)">Deletar</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div ng-hide="editMode" class="container">
+          <div>
+            <p ng-if="contact.email">email: <a ng-href="mailto:{{ contact.email }}" target="_blank">{{ contact.email }}</a></p>
+            <p ng-if="contact.phone.mobile">Celular: <a ng-href="tel:{{ contact.phone.mobile }}" target="_blank">{{ contact.phone.mobile }} </a></p>
+            <p ng-if="contact.phone.fixo">Telefone Fixo: <a ng-href="tel:{{ contact.phone.fixo }}" target="_blank">{{ contact.phone.fixo }} </a></p>
+            <p ng-if="contact.address"> address: {{ contact.address }} </p>
+            <p ng-if="contact.twitter"> twitter: <a ng-href="https://twitter.com/{{ contact.twitter }}" target="_blank">@{{ contact.twitter }}</a></p>
+
+          </div>
+        </div>
+    </div>
+
+    <!-- Contact form -->
+    <div ng-include="contactFormUrl">
+    </div>
+
+    <div class="jumbotron" ng-controller="editEmpresa">
+        <div class="container">
+          <div>
+            <h2>Create new Empresa</h2>
+            <p>{{contact.contribuicao}}</p>
+            <p>
+              <label>Empresa</label>
+              <input id="name" class="form-control" type="text" ng-model="empresa">
+            </p>
+            <p>
+              <label>Data Inicial</label>
+              <input id="name" class="form-control" type="text" ng-model="dataini">
+            </p>
+            <p>
+              <label>Data Final</label>
+              <input id="name" class="form-control" type="text" ng-model="datafim">
+            </p>
+            {{empresa}}
+            {{dataini}}
+            {{datafim}}
+            {{contact}}
+            {{contact.contribuicao}}
+            {{contact.contribuicao.empresa}}
+            {{contact._id}}
+            <p>
+              <button style="margin-top:20px" class="btn btn-primary" ng-click="salvarContrib(empresa, dataini, datafim, contact)">Savar Contribuição</button>
+              <button style="margin-top:20px" class="btn btn-default" ng-click="back()">Voltar</button>
+              <h4 class="text-center">Tempo Total: xx  -  Faltam: xx</h4>
+            </p>
+            <table class="table table-striped">
+                <tr>
+                    <th>Empresa</th>
+                    <th>Data Inicial</th>
+                    <th>Data Final</th>
+                    <th>Tempo Parcial</th>
+                </tr>
+                <tr ng-repeat="contrib in contact.contribuicao">
+                    <td>{{contrib.empresa}}</td>
+                    <td>{{contrib.dataini}}</td>
+                    <td>{{contrib.datafim}}</td>
+                    <td></td>
+                </tr>
+            </table>
+          </div>
+        </div>
+
+    </div>
